@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   #devise_for :users
   devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
   resources :courses
-  resources :users, only: [:index]
+  resources :users #only: [:index, :edit, :show, :update]
   get 'home/index'
   get 'home/activity'
   root 'home#index'
