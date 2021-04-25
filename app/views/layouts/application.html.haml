@@ -12,7 +12,10 @@
   %body
     = render 'layouts/header'
     = render 'layouts/messages'
-    %p.notice= notice
-    %p.alert= alert
+    -# %p.notice= notice
+    -# %p.alert= alert
     .container
+      %p
       = yield
+    %br
+    = render 'layouts/footer'
