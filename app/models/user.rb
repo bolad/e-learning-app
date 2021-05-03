@@ -16,6 +16,9 @@ class User < ApplicationRecord
 
   has_many :courses
 
+  extend FriendlyId
+  friendly_id :email, use: :slugged
+
   after_create :assign_default_role
 
   def assign_default_role
@@ -28,4 +31,14 @@ class User < ApplicationRecord
       self.add_role(:teacher)
     end
   end
+
+  validate :must_have_a_role, on: :update
+
+  private
+  def must_have_a_role
+    unless roles.any?
+      errors.add(:roles, "user must have at least one role")
+    end
+  end
+
 end
