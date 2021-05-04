@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :lessons
   #devise_for :users
   devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
-  resources :courses
+  resources :courses do
+    resources :lessons
+  end
   resources :users #only: [:index, :edit, :show, :update]
   get 'home/index'
   get 'home/activity'
