@@ -43,3 +43,4 @@ gem 'bolad_view_tool', git: 'https://github.com/bolad/bolad_view_tool'
 gem "rolify"
 gem "pundit"
 gem 'exception_notification'
+gem 'pagy'
